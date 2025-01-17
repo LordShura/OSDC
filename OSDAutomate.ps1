@@ -11,7 +11,7 @@ Import-Module OSD -Force
 
 # Iniciar o Deployment Automático
 Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
-Start-OSDCloud
+Start-OSDCloud -FindImageFile -ZTI 
 
 Write-Host -ForegroundColor Green "Reiniciando ..."
 start-sleep -Seconds 5
