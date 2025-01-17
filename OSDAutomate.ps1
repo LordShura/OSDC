@@ -10,7 +10,7 @@ Import-Module OSD -Force
 
 Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
 
-Start-OSDCloudgui
+Start-OSDCloudWim
 
 Write-Host -ForegroundColor Green "Reiniciando ..."
 start-sleep -Seconds 5
