@@ -12,6 +12,7 @@ Import-Module OSD -Force
 # Iniciar o Deployment Automático
 Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
 Start-OSDCloud -FindImageFile -OSImageIndex 1
+pause
 
 Write-Host -ForegroundColor Green "Reiniciando ..."
 start-sleep -Seconds 5
