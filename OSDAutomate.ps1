@@ -10,7 +10,7 @@ Import-Module OSD -Force
 
 Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
 
-Start-OSDCloud -OSLanguage pt-br -OSName 'Windows 11 24H2 x64' -OSLicense Retail -OSEdition Pro -Zti
+Start-OSDCloudgui
 
 Write-Host -ForegroundColor Green "Reiniciando ..."
 start-sleep -Seconds 5
