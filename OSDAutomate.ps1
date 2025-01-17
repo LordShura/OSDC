@@ -7,10 +7,11 @@ start-sleep -Seconds 2
 
 Write-Host -ForegroundColor Green "Importando OSD Modulo Powershell"
 Import-Module OSD -Force
+# Configurar o OSDCloud para usar o arquivo WIM
 
+# Iniciar o Deployment Automático
 Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
-
-Start-OSDCloudWim
+Start-OSDCloud
 
 Write-Host -ForegroundColor Green "Reiniciando ..."
 start-sleep -Seconds 5
