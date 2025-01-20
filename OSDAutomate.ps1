@@ -11,7 +11,7 @@ Import-Module OSD -Force
 
 # Iniciar o Deployment Automático
 Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
-Start-OSDCloud -OSName 'Windows 11 24H2 x64' -OSLanguage pt-br -OSEdition 'Enterprise N' -OSActivation Retail
+Start-OSDCloud -OSName 'Windows 11 24H2 x64' -OSLanguage pt-br -OSActivation Retail -OSEdition 'Enterprise N' 
 pause
 
 Write-Host -ForegroundColor Green "Reiniciando ..."
