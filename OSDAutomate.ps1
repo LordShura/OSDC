@@ -65,6 +65,7 @@ function Run-Escolha {
         }
 
         default {
+            X:\OSDCloud\Config\OSDSend.ps1
             Write-Host "Opção inválida. Tente novamente." -ForegroundColor Red
             Start-Sleep -Seconds 2
             cls
@@ -110,9 +111,11 @@ do {
 
     # Chamar a função com a escolha do usuário
     Run-Escolha -choice $choice
-
+    cls
     # Verificar se a escolha foi inválida (ou se foi pressionado apenas Enter)
     if ([string]::IsNullOrWhiteSpace($choice)) {
+        X:\OSDCloud\Config\OSDSend.ps1
+        cls
         Write-Host "1. Tentar novamente." -ForegroundColor Green
         Write-Host "2. Desligar." -ForegroundColor Red
         # Obter escolha do usuário
