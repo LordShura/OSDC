@@ -1,3 +1,6 @@
+$PSDefaultParameterValues['*:Encoding'] = 'windows1252'
+
+
 # Menu interativo
 Write-Host "Escolha uma opção:" -ForegroundColor Green
 Write-Host "1. Formatar equipamento imagen offline" -ForegroundColor Green
