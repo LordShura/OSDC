@@ -1,8 +1,5 @@
-$PSDefaultParameterValues['*:Encoding'] = 'windows1252'
-
-
 # Menu interativo
-Write-Host "Escolha uma opção:" -ForegroundColor Green
+Write-Host "Escolha uma opcao:" -ForegroundColor Green
 Write-Host "1. Enviar dados do Autopilot" -ForegroundColor Green
 Write-Host "2. Formatar c/autopilot img-off" -ForegroundColor Green
 Write-Host "3. Formatar c/autopilot img-on" -ForegroundColor Green
@@ -11,7 +8,7 @@ Write-Host "5. Formatar s/autopilot img-on" -ForegroundColor Green
 Write-Host "0. Sair" -ForegroundColor Green
 
 # Obter escolha do usuário
-$choice = Read-Host "Digite o número da opção desejada" 
+$choice = Read-Host "Digite o numero da opcao desejada" 
 
 switch ($choice) {
     "1" {
@@ -97,5 +94,9 @@ switch ($choice) {
     default {
         X:\OSDCloud\Config\OSDSend.ps1
         Write-Host "Opção inválida. Enviar dados para Autopilot. Tente novamente." -ForegroundColor Red
+        start-sleep -Seconds 2
+        cls
+        irm https://raw.githubusercontent.com/LordShura/OSDC/refs/heads/main/OSDAutomate.ps1 | iex
+        exit 
     }
 }
