@@ -11,6 +11,39 @@ function Shutdown-System {
     Start-Sleep -Seconds 2
     wpeutil shutdown
 }
+# Função para desligar o sistema
+function osdcloud-on {
+    Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
+    start-sleep -Seconds 3
+   
+    Write-Host -ForegroundColor Green "Importando OSD Modulo Powershell"
+    Import-Module OSD -Force
+    # Configurar o OSDCloud para usar o arquivo WIM
+   
+    # Iniciar o Deployment Automático
+    Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
+    Start-OSDCloud
+    wpeutil restart
+}
+# Função para desligar o sistema
+function osdcloud-off {
+    Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
+    start-sleep -Seconds 3
+   
+    Write-Host -ForegroundColor Green "Importando OSD Modulo Powershell"
+    Import-Module OSD -Force
+    # Configurar o OSDCloud para usar o arquivo WIM
+   
+    # Iniciar o Deployment Automático
+    Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
+    Start-OSDCloud -FindImageFile
+    wpeutil restart
+}
+
+
+
+
+
 
 # Função principal para processar a escolha
 function Run-Escolha {
@@ -28,34 +61,26 @@ function Run-Escolha {
         "2" {
             Write-Host "Opcao selecionada: Formatar c/autopilot img-off" -ForegroundColor Yellow
             & X:\OSDCloud\Config\OSDSend.ps1
-            Write-Host -ForegroundColor Green "Iniciando OSDCloud..."
-            Start-Sleep -Seconds 3
-            Start-OSDCloud -FindImageFile
+            osdcloud-off
             Restart-System
         }
 
         "3" {
             Write-Host "Opcao selecionada: Formatar c/autopilot img-on" -ForegroundColor Yellow
             & X:\OSDCloud\Config\OSDSend.ps1
-            Write-Host -ForegroundColor Green "Iniciando OSDCloud..."
-            Start-Sleep -Seconds 3
-            Start-OSDCloud
+            osdcloud-off
             Restart-System
         }
 
         "4" {
             Write-Host "Opcao selecionada: Formatar s/autopilot img-off" -ForegroundColor Yellow
-            Write-Host -ForegroundColor Green "Iniciando OSDCloud..."
-            Start-Sleep -Seconds 3
-            Start-OSDCloud -FindImageFile
+            osdcloud-off
             Restart-System
         }
 
         "5" {
             Write-Host "Opcao selecionada: Formatar s/autopilot img-on" -ForegroundColor Yellow
-            Write-Host -ForegroundColor Green "Iniciando OSDCloud..."
-            Start-Sleep -Seconds 3
-            Start-OSDCloud
+            osdcloud-on
             Restart-System
         }
 
