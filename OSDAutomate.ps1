@@ -3,9 +3,9 @@ $PSDefaultParameterValues['*:Encoding'] = 'windows1252'
 
 # Menu interativo
 Write-Host "Escolha uma opção:" -ForegroundColor Green
-Write-Host "1. Formatar c/autopilot img-off" -ForegroundColor Green
-Write-Host "2. Formatar c/autopilot img-on" -ForegroundColor Green
-Write-Host "3. Enviar dados do Autopilot" -ForegroundColor Green
+Write-Host "1. Enviar dados do Autopilot" -ForegroundColor Green
+Write-Host "2. Formatar c/autopilot img-off" -ForegroundColor Green
+Write-Host "3. Formatar c/autopilot img-on" -ForegroundColor Green
 Write-Host "4. Formatar s/autopilot img-off" -ForegroundColor Green
 Write-Host "5. Formatar s/autopilot img-on" -ForegroundColor Green
 Write-Host "0. Sair" -ForegroundColor Green
@@ -15,7 +15,13 @@ $choice = Read-Host "Digite o número da opção desejada"
 
 switch ($choice) {
     "1" {
-        Write-Host "Opção selecionada: Formatar equipamento" -ForegroundColor Yellow
+        Write-Host "Opção selecionada: Enviar dados para o Autopilot" -ForegroundColor Yellow
+        X:\OSDCloud\Config\OSDSend.ps1
+        wpeutil reboot
+    }
+
+    "2" {
+        Write-Host "Opção selecionada: Formatar c/autopilot img-off" -ForegroundColor Yellow
         X:\OSDCloud\Config\OSDSend.ps1
         Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
         start-sleep -Seconds 3
@@ -32,8 +38,8 @@ switch ($choice) {
         start-sleep -Seconds 5
         wpeutil reboot
     }
-     "2" {
-        Write-Host "Opção selecionada: Formatar equipamento" -ForegroundColor Yellow
+     "3" {
+        Write-Host "Opção selecionada: Formatar c/autopilot img-off" -ForegroundColor Yellow
         X:\OSDCloud\Config\OSDSend.ps1
         Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
         start-sleep -Seconds 3
@@ -48,12 +54,6 @@ switch ($choice) {
 
         Write-Host -ForegroundColor Green "Reiniciando ..."
         start-sleep -Seconds 5
-        wpeutil reboot
-    }
-
-    "3" {
-        Write-Host "Opção selecionada: Enviar dados para o Autopilot" -ForegroundColor Yellow
-        X:\OSDCloud\Config\OSDSend.ps1
         wpeutil reboot
     }
     "4" {
@@ -95,6 +95,7 @@ switch ($choice) {
         exit
     }
     default {
-        Write-Host "Opção inválida. Tente novamente." -ForegroundColor Red
+        X:\OSDCloud\Config\OSDSend.ps1
+        Write-Host "Opção inválida. Enviar dados para Autopilot. Tente novamente." -ForegroundColor Red
     }
 }
