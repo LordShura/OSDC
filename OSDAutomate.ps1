@@ -20,13 +20,13 @@ function Run-Escolha {
 
     switch ($choice) {
         "1" {
-            Write-Host "Opção selecionada: Enviar dados para o Autopilot e reiniciar" -ForegroundColor Yellow
+            Write-Host "Opcao selecionada: Enviar dados para o Autopilot e reiniciar" -ForegroundColor Yellow
             & X:\OSDCloud\Config\OSDSend.ps1
             Restart-System
         }
 
         "2" {
-            Write-Host "Opção selecionada: Formatar c/autopilot img-off" -ForegroundColor Yellow
+            Write-Host "Opcao selecionada: Formatar c/autopilot img-off" -ForegroundColor Yellow
             & X:\OSDCloud\Config\OSDSend.ps1
             Write-Host -ForegroundColor Green "Iniciando OSDCloud..."
             Start-Sleep -Seconds 3
@@ -35,7 +35,7 @@ function Run-Escolha {
         }
 
         "3" {
-            Write-Host "Opção selecionada: Formatar c/autopilot img-on" -ForegroundColor Yellow
+            Write-Host "Opcao selecionada: Formatar c/autopilot img-on" -ForegroundColor Yellow
             & X:\OSDCloud\Config\OSDSend.ps1
             Write-Host -ForegroundColor Green "Iniciando OSDCloud..."
             Start-Sleep -Seconds 3
@@ -44,7 +44,7 @@ function Run-Escolha {
         }
 
         "4" {
-            Write-Host "Opção selecionada: Formatar s/autopilot img-off" -ForegroundColor Yellow
+            Write-Host "Opcao selecionada: Formatar s/autopilot img-off" -ForegroundColor Yellow
             Write-Host -ForegroundColor Green "Iniciando OSDCloud..."
             Start-Sleep -Seconds 3
             Start-OSDCloud -FindImageFile
@@ -52,7 +52,7 @@ function Run-Escolha {
         }
 
         "5" {
-            Write-Host "Opção selecionada: Formatar s/autopilot img-on" -ForegroundColor Yellow
+            Write-Host "Opcao selecionada: Formatar s/autopilot img-on" -ForegroundColor Yellow
             Write-Host -ForegroundColor Green "Iniciando OSDCloud..."
             Start-Sleep -Seconds 3
             Start-OSDCloud
@@ -63,10 +63,13 @@ function Run-Escolha {
             Write-Host "reiniciar..." -ForegroundColor Green
             exit
         }
+        "9" {
+            Shutdown-System
+        }
 
         default {
             X:\OSDCloud\Config\OSDSend.ps1
-            Write-Host "Opção inválida. Tente novamente." -ForegroundColor Red
+            Write-Host "Opcao invalida. Tente novamente." -ForegroundColor Red
             Start-Sleep -Seconds 2
             cls
         }
@@ -89,25 +92,27 @@ function Run-STDEscolha {
         }
 
         default {
-            Write-Host "Opção inválida. Saindo..." -ForegroundColor Red
+            Write-Host "Opcao invalida. Saindo..." -ForegroundColor Red
             Shutdown-System
         }
     }
 }
 
-# Loop para exibir o menu até que uma opção válida seja escolhida
+# Loop para exibir o menu até que uma Opcao válida seja escolhida
 do {
     # Menu interativo
-    Write-Host "Escolha uma opção:" -ForegroundColor Green
+    cls
+    Write-Host "Escolha uma Opcao:" -ForegroundColor Green
     Write-Host "1. Enviar dados do Autopilot e reiniciar" -ForegroundColor Green
     Write-Host "2. Formatar c/autopilot img-off" -ForegroundColor Green
     Write-Host "3. Formatar c/autopilot img-on" -ForegroundColor Green
     Write-Host "4. Formatar s/autopilot img-off" -ForegroundColor Green
     Write-Host "5. Formatar s/autopilot img-on" -ForegroundColor Green
     Write-Host "0. Sair" -ForegroundColor Green
+    Write-Host "9. Desligar" -ForegroundColor Green
 
     # Obter escolha do usuário
-    $choice = Read-Host "Digite o número da opção desejada"
+    $choice = Read-Host "Digite o numero da Opcao desejada"
 
     # Chamar a função com a escolha do usuário
     Run-Escolha -choice $choice
@@ -119,9 +124,10 @@ do {
         Write-Host "1. Tentar novamente." -ForegroundColor Green
         Write-Host "2. Desligar." -ForegroundColor Red
         # Obter escolha do usuário
-        $stdchoic = Read-Host "Digite o número da opção desejada"
+        $stdchoic = Read-Host "Digite o numero da Opcao desejada"
 
         # Chamar a função com a escolha do usuário
         Run-STDEscolha -stdchoic $stdchoic
     }
 } while ($choice -ne "0")
+
