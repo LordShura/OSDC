@@ -46,7 +46,7 @@ switch ($choice) {
 
     "3" {
         Write-Host "Opção selecionada: Enviar dados para o Autopilot" -ForegroundColor Yellow
-        X:\OSDCloud\Config\Scripts\OSDSend.ps1
+        X:\OSDCloud\Config\OSDSend.ps1
         pause
         exit
     }
