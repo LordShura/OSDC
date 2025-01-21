@@ -14,6 +14,7 @@ $choice = Read-Host "Digite o número da opção desejada"
 switch ($choice) {
     "1" {
         Write-Host "Opção selecionada: Formatar equipamento" -ForegroundColor Yellow
+        X:\OSDCloud\Config\OSDSend.ps1
         Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
         start-sleep -Seconds 3
 
@@ -31,6 +32,7 @@ switch ($choice) {
     }
      "2" {
         Write-Host "Opção selecionada: Formatar equipamento" -ForegroundColor Yellow
+        X:\OSDCloud\Config\OSDSend.ps1
         Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
         start-sleep -Seconds 3
 
