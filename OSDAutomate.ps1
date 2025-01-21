@@ -68,7 +68,7 @@ function Run-Escolha {
         "3" {
             Write-Host "Opcao selecionada: Formatar c/autopilot img-on" -ForegroundColor Yellow
             & X:\OSDCloud\Config\OSDSend.ps1
-            osdcloud-off
+            osdcloud-on
             Restart-System
         }
 
