@@ -3,9 +3,11 @@ $PSDefaultParameterValues['*:Encoding'] = 'windows1252'
 
 # Menu interativo
 Write-Host "Escolha uma opção:" -ForegroundColor Green
-Write-Host "1. Formatar equipamento imagen offline" -ForegroundColor Green
-Write-Host "2. Formatar equipamento imagen online" -ForegroundColor Green
+Write-Host "1. Formatar c/autopilot img-off" -ForegroundColor Green
+Write-Host "2. Formatar c/autopilot img-on" -ForegroundColor Green
 Write-Host "3. Enviar dados do Autopilot" -ForegroundColor Green
+Write-Host "4. Formatar s/autopilot img-off" -ForegroundColor Green
+Write-Host "5. Formatar s/autopilot img-on" -ForegroundColor Green
 Write-Host "0. Sair" -ForegroundColor Green
 
 # Obter escolha do usuário
@@ -42,7 +44,7 @@ switch ($choice) {
 
         # Iniciar o Deployment Automático
         Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
-        Start-OSDCloud -FindImageFile
+        Start-OSDCloud
 
         Write-Host -ForegroundColor Green "Reiniciando ..."
         start-sleep -Seconds 5
@@ -54,6 +56,40 @@ switch ($choice) {
         X:\OSDCloud\Config\OSDSend.ps1
         wpeutil reboot
     }
+    "4" {
+        Write-Host "Opção selecionada: Formatar s/autopilot img-on" -ForegroundColor Yellow
+        Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
+        start-sleep -Seconds 3
+
+        Write-Host -ForegroundColor Green "Importando OSD Modulo Powershell"
+        Import-Module OSD -Force
+        # Configurar o OSDCloud para usar o arquivo WIM
+
+        # Iniciar o Deployment Automático
+        Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
+        Start-OSDCloud -FindImageFile
+
+        Write-Host -ForegroundColor Green "Reiniciando ..."
+        start-sleep -Seconds 5
+        wpeutil reboot
+    }
+     "5" {
+        Write-Host "Opção selecionada: Formatar s/autopilot img-off" -ForegroundColor Yellow
+        Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
+        start-sleep -Seconds 3
+
+        Write-Host -ForegroundColor Green "Importando OSD Modulo Powershell"
+        Import-Module OSD -Force
+        # Configurar o OSDCloud para usar o arquivo WIM
+
+        # Iniciar o Deployment Automático
+        Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
+        Start-OSDCloud
+
+        Write-Host -ForegroundColor Green "Reiniciando ..."
+        start-sleep -Seconds 5
+        wpeutil reboot
+    }
     "0" {
         Write-Host "Saindo..." -ForegroundColor Green
         exit
@@ -62,6 +98,3 @@ switch ($choice) {
         Write-Host "Opção inválida. Tente novamente." -ForegroundColor Red
     }
 }
-﻿
-
-
