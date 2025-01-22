@@ -128,6 +128,7 @@ do {
     # Menu interativo
     if($down -eq 2){Restart-System }
     cls
+    $down
     Write-Host "Escolha uma Opcao:" -ForegroundColor Green
     Write-Host "1. Enviar dados do Autopilot e reiniciar" -ForegroundColor Green
     Write-Host "2. Formatar c/autopilot img-off" -ForegroundColor Green
