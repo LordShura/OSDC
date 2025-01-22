@@ -1,3 +1,4 @@
+$down = 3
 # Função para reiniciar o sistema
 function Restart-System {
     Write-Host -ForegroundColor Green "Reiniciando sistema..."
@@ -11,8 +12,9 @@ function Shutdown-System {
     Start-Sleep -Seconds 2
     wpeutil shutdown
 }
-# Função para desligar o sistema
+# Função para acionar o osdcloud-on
 function osdcloud-on {
+    $down -= 1
     Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
     start-sleep -Seconds 3
    
@@ -25,8 +27,9 @@ function osdcloud-on {
     Start-OSDCloud
     wpeutil restart
 }
-# Função para desligar o sistema
+# Função para acionar o osdcloud-off
 function osdcloud-off {
+    $down -= 1
     Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
     start-sleep -Seconds 3
    
@@ -39,9 +42,6 @@ function osdcloud-off {
     Start-OSDCloud -FindImageFile
     wpeutil restart
 }
-
-
-
 
 
 
@@ -126,6 +126,7 @@ function Run-STDEscolha {
 # Loop para exibir o menu até que uma Opcao válida seja escolhida
 do {
     # Menu interativo
+    if($down -eq 2){Restart-System }
     cls
     Write-Host "Escolha uma Opcao:" -ForegroundColor Green
     Write-Host "1. Enviar dados do Autopilot e reiniciar" -ForegroundColor Green
@@ -155,4 +156,3 @@ do {
         Run-STDEscolha -stdchoic $stdchoic
     }
 } while ($choice -ne "0")
-
