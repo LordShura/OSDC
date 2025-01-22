@@ -86,7 +86,7 @@ function Run-Escolha {
 
         "0" {
             Write-Host "reiniciar..." -ForegroundColor Green
-            exit
+            Restart-System
         }
         "9" {
             Shutdown-System
