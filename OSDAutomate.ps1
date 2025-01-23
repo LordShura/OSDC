@@ -68,6 +68,7 @@ function swich_loop{
 
         # Obter escolha do usuário
         $stdchoic = Read-Host "Digite o numero da Opcao desejada"
+        cls
         if($stdchoic -eq 1 ){swich_loop}
         if($stdchoic -eq 2 ){Shutdown-System}
         if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
