@@ -11,6 +11,7 @@ function Shutdown-System {
     Start-Sleep -Seconds 2
     wpeutil shutdown
 }
+
 # Função para acionar o osdcloud-on
 function osdcloud-on {
     Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
@@ -25,6 +26,7 @@ function osdcloud-on {
     Start-OSDCloud
     wpeutil restart
 }
+
 # Função para acionar o osdcloud-off
 function osdcloud-off {
     Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
@@ -121,8 +123,6 @@ function Run-Escolha {
 
         default {
             Write-Host "Opcao invalida. Tente novamente." -ForegroundColor Red
-            Start-Sleep -Seconds 2
-            cls
             Write-Host "1. Tentar novamente." -ForegroundColor Green
             Write-Host "2. Desligar." -ForegroundColor Red
             # Obter escolha do usuário
@@ -136,6 +136,7 @@ function Run-Escolha {
         }
     }
 }
+
 function loop_tentarnovamente{
             Write-Host "Opcao invalida. Tente novamente." -ForegroundColor Red
             Start-Sleep -Seconds 1
