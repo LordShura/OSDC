@@ -127,6 +127,7 @@ function Run-Escolha {
             Write-Host "2. Desligar." -ForegroundColor Red
             # Obter escolha do usuário
             $stdchoic = Read-Host "Digite o numero da Opcao desejada"
+            cls
             switch ($stdchoic) {
             "1" {swich_loop}
             "2" {Shutdown-System}
@@ -166,7 +167,7 @@ function loop_tentarnovamente{
 
     # Obter escolha do usuário
     $choice = Read-Host "Digite o numero da Opcao desejada"
-
+    
     # Chamar a função com a escolha do usuário
     $validChoices = @(1, 2, 3, 4, 5, 0, 9)
     if (-not [int]::TryParse($choice, [ref]$null)) {
