@@ -167,19 +167,4 @@ function loop_tentarnovamente{
 
     # Chamar a função com a escolha do usuário
     Run-Escolha -choice $choice
-    cls
-    # Verificar se a escolha foi inválida (ou se foi pressionado apenas Enter)
-    if ([string]::IsNullOrWhiteSpace($choice)) {
-        X:\OSDCloud\Config\OSDSend.ps1
-        cls
-        Write-Host "1. Tentar novamente." -ForegroundColor Green
-        Write-Host "2. Desligar." -ForegroundColor Red
-        Write-Host "2. fora do loop." -ForegroundColor Red
-        # Obter escolha do usuário
-        $stdchoic = Read-Host "Digite o numero da Opcao desejada"
-        switch ($stdchoic) {
-            "1" {swich_loop}
-            "2" {Shutdown-System}
-            default {Run-Escolha}
-            }
-    }
+   
