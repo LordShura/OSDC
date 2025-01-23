@@ -141,8 +141,6 @@ function Run-Escolha {
 
 function loop_tentarnovamente{
             Write-Host "Opcao invalida. Tente novamente." -ForegroundColor Red
-            Start-Sleep -Seconds 1
-            cls
             Write-Host "1. Tentar novamente." -ForegroundColor Green
             Write-Host "2. Desligar." -ForegroundColor Red
             # Obter escolha do usuário
