@@ -67,9 +67,9 @@ function swich_loop{
         Write-Host "2. Desligar." -ForegroundColor Red
         # Obter escolha do usuário
         $stdchoic = Read-Host "Digite o numero da Opcao desejada"
-
-        # Chamar a função com a escolha do usuário
-        Run-STDEscolha -stdchoic $stdchoic
+        if($stdchoic -eq 1 ){swich_loop}
+        if($stdchoic -eq 2 ){Shutdown-System}
+        if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
     }
 
 
@@ -179,6 +179,6 @@ function Run-STDEscolha {
         $stdchoic = Read-Host "Digite o numero da Opcao desejada"
         if($stdchoic -eq 1 ){swich_loop}
         if($stdchoic -eq 2 ){Shutdown-System}
-        # Chamar a função com a escolha do usuário
-        Run-STDEscolha -stdchoic $stdchoic
+        if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
+
     }
