@@ -43,7 +43,7 @@ function osdcloud-off {
 }
 
 function swich_loop{
-    Write-Host "$down" -ForegroundColor Green
+    cls
     Write-Host "Escolha uma Opcao:" -ForegroundColor Green
     Write-Host "1. Enviar dados do Autopilot e reiniciar" -ForegroundColor Green
     Write-Host "2. Formatar c/autopilot img-off" -ForegroundColor Green
