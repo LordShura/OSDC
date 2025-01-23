@@ -70,7 +70,7 @@ function swich_loop{
         if($stdchoic -eq 1 ){swich_loop}
         if($stdchoic -eq 2 ){Shutdown-System}
         if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
-        if(($stdchoic -notlike 1) -or ($stdchoic -notlike 2)){swich_loop}
+        if(($stdchoic -notlike 1) -or ($stdchoic -notlike 2)){loop_tentarnovamente}
     }
 }
 
@@ -181,5 +181,4 @@ function loop_tentarnovamente{
         if($stdchoic -eq 2 ){cls
         Shutdown-System}
         if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
-
     }
