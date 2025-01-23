@@ -123,6 +123,7 @@ function Run-Escolha {
         }
 
         default {
+            cls
             Write-Host "Opcao invalida. Tente novamente." -ForegroundColor Red
             Write-Host "1. Tentar novamente." -ForegroundColor Green
             Write-Host "2. Desligar." -ForegroundColor Red
