@@ -130,7 +130,9 @@ function Run-Escolha {
             switch ($stdchoic) {
             "1" {swich_loop}
             "2" {Shutdown-System}
-            default {loop_tentarnovamente}
+            default {
+            if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
+            loop_tentarnovamente}
             }
 
         }
@@ -148,6 +150,7 @@ function loop_tentarnovamente{
             switch ($stdchoic) {
             "1" {swich_loop}
             "2" {Shutdown-System}
+            if
             default {loop_tentarnovamente}
             }
 }
