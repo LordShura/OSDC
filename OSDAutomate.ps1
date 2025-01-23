@@ -63,6 +63,8 @@ function swich_loop{
         cls
         Write-Host "1. Tentar novamente." -ForegroundColor Green
         Write-Host "2. Desligar." -ForegroundColor Red
+        Write-Host "2. dentro do loop swich_loop " -ForegroundColor Red
+
         # Obter escolha do usuário
         $stdchoic = Read-Host "Digite o numero da Opcao desejada"
         if($stdchoic -eq 1 ){swich_loop}
@@ -126,6 +128,7 @@ function Run-Escolha {
             cls
             Write-Host "1. Tentar novamente." -ForegroundColor Green
             Write-Host "2. Desligar." -ForegroundColor Red
+            Write-Host "2. dentro do loop.Run-Escolha " -ForegroundColor Red
             # Obter escolha do usuário
             $stdchoic = Read-Host "Digite o numero da Opcao desejada"
             if($stdchoic -eq 1 ){swich_loop}
@@ -159,6 +162,7 @@ function Run-Escolha {
         cls
         Write-Host "1. Tentar novamente." -ForegroundColor Green
         Write-Host "2. Desligar." -ForegroundColor Red
+        Write-Host "2. fora do loop." -ForegroundColor Red
         # Obter escolha do usuário
         $stdchoic = Read-Host "Digite o numero da Opcao desejada"
         if($stdchoic -eq 1 ){cls 
