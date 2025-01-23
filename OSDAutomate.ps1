@@ -130,10 +130,12 @@ function Run-Escolha {
             Write-Host "2. dentro do loop.Run-Escolha " -ForegroundColor Red
             # Obter escolha do usuário
             $stdchoic = Read-Host "Digite o numero da Opcao desejada"
-            if($stdchoic -eq 1 ){swich_loop}
-            if($stdchoic -eq 2 ){Shutdown-System}
-            if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
-            if(($stdchoic -notlike 1) -or ($stdchoic -notlike 2)){swich_loop}
+            switch ($stdchoic) {
+            "1" {swich_loop}
+            "2" {Shutdown-System}
+            default {loop_tentarnovamente}
+            }
+
         }
     }
 }
@@ -145,10 +147,11 @@ function loop_tentarnovamente{
             Write-Host "2. Desligar." -ForegroundColor Red
             # Obter escolha do usuário
             $stdchoic = Read-Host "Digite o numero da Opcao desejada"
-            if($stdchoic -eq 1 ){swich_loop}
-            if($stdchoic -eq 2 ){Shutdown-System}
-            if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
-            loop_tentarnovamente
+            switch ($stdchoic) {
+            "1" {swich_loop}
+            "2" {Shutdown-System}
+            default {loop_tentarnovamente}
+            }
 }
 
     # Menu interativo
@@ -176,9 +179,9 @@ function loop_tentarnovamente{
         Write-Host "2. fora do loop." -ForegroundColor Red
         # Obter escolha do usuário
         $stdchoic = Read-Host "Digite o numero da Opcao desejada"
-        if($stdchoic -eq 1 ){cls 
-        swich_loop}
-        if($stdchoic -eq 2 ){cls
-        Shutdown-System}
-        if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
+        switch ($stdchoic) {
+            "1" {swich_loop}
+            "2" {Shutdown-System}
+            default {loop_tentarnovamente}
+            }
     }
