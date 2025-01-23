@@ -13,7 +13,6 @@ function Shutdown-System {
 }
 # Função para acionar o osdcloud-on
 function osdcloud-on {
-    $down -= 1
     Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
     start-sleep -Seconds 3
    
@@ -28,7 +27,6 @@ function osdcloud-on {
 }
 # Função para acionar o osdcloud-off
 function osdcloud-off {
-    $down -= 1
     Write-Host -ForegroundColor Green "Iniciando OSDCloud  ..."
     start-sleep -Seconds 3
    
@@ -130,12 +128,10 @@ function Run-Escolha {
             Write-Host "2. Desligar." -ForegroundColor Red
             # Obter escolha do usuário
             $stdchoic = Read-Host "Digite o numero da Opcao desejada"
-            if($stdchoic -eq 1 ){cls 
-            swich_loop}
-            if($stdchoic -eq 2 ){cls
-        Shutdown-System}
-        if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
-        Shutdown-System
+            if($stdchoic -eq 1 ){swich_loop}
+            if($stdchoic -eq 2 ){Shutdown-System}
+            if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
+            if(($stdchoic -notlike 1) -or ($stdchoic -notlike 2)){swich_loop}
         }
     }
 }
