@@ -148,6 +148,7 @@ function Run-STDEscolha {
 
         default {
             Write-Host "Opcao invalida. Saindo..." -ForegroundColor Red
+            cls
             Shutdown-System
         }
     }
@@ -177,8 +178,10 @@ function Run-STDEscolha {
         Write-Host "2. Desligar." -ForegroundColor Red
         # Obter escolha do usuário
         $stdchoic = Read-Host "Digite o numero da Opcao desejada"
-        if($stdchoic -eq 1 ){swich_loop}
-        if($stdchoic -eq 2 ){Shutdown-System}
+        if($stdchoic -eq 1 ){cls 
+        swich_loop}
+        if($stdchoic -eq 2 ){cls
+        Shutdown-System}
         if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
 
     }
