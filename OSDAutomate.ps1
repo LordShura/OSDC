@@ -70,9 +70,8 @@ function swich_loop{
         if($stdchoic -eq 1 ){swich_loop}
         if($stdchoic -eq 2 ){Shutdown-System}
         if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
+        if(($stdchoic -notlike 1) -or ($stdchoic -notlike 2)){swich_loop}
     }
-
-
 }
 
 # Função principal para processar a escolha
@@ -134,8 +133,8 @@ function Run-Escolha {
             if($stdchoic -eq 1 ){cls 
             swich_loop}
             if($stdchoic -eq 2 ){cls
-            Shutdown-System}
-            if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
+        Shutdown-System}
+        if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
         }
     }
 }
