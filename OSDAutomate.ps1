@@ -135,34 +135,13 @@ function Run-Escolha {
             if($stdchoic -eq 2 ){cls
         Shutdown-System}
         if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
+        Shutdown-System
         }
     }
 }
 
-# Função para processar a escolha após uma entrada inválida
-function Run-STDEscolha {
-    param (
-        [string]$stdchoic
-    )
-    switch ($stdchoic) {
-        "1" {
-            # Reexibir o menu após a escolha de tentar novamente
-            return
-        }
 
-        "2" {
-            Shutdown-System
-        }
-
-        default {
-            Write-Host "Opcao invalida. Saindo..." -ForegroundColor Red
-            cls
-            Shutdown-System
-        }
-    }
-}
     # Menu interativo
-    Write-Host "$down" -ForegroundColor Green
     Write-Host "Escolha uma Opcao:" -ForegroundColor Green
     Write-Host "1. Enviar dados do Autopilot e reiniciar" -ForegroundColor Green
     Write-Host "2. Formatar c/autopilot img-off" -ForegroundColor Green
