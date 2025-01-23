@@ -127,6 +127,15 @@ function Run-Escolha {
             Write-Host "Opcao invalida. Tente novamente." -ForegroundColor Red
             Start-Sleep -Seconds 2
             cls
+            Write-Host "1. Tentar novamente." -ForegroundColor Green
+            Write-Host "2. Desligar." -ForegroundColor Red
+            # Obter escolha do usuário
+            $stdchoic = Read-Host "Digite o numero da Opcao desejada"
+            if($stdchoic -eq 1 ){cls 
+            swich_loop}
+            if($stdchoic -eq 2 ){cls
+            Shutdown-System}
+            if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
         }
     }
 }
