@@ -59,7 +59,6 @@ function swich_loop{
     cls
     # Verificar se a escolha foi inválida (ou se foi pressionado apenas Enter)
     if ([string]::IsNullOrWhiteSpace($choice)) {
-        X:\OSDCloud\Config\OSDSend.ps1
         cls
         Write-Host "1. Tentar novamente." -ForegroundColor Green
         Write-Host "2. Desligar." -ForegroundColor Red
@@ -121,7 +120,6 @@ function Run-Escolha {
         }
 
         default {
-            X:\OSDCloud\Config\OSDSend.ps1
             Write-Host "Opcao invalida. Tente novamente." -ForegroundColor Red
             Start-Sleep -Seconds 2
             cls
@@ -182,6 +180,6 @@ function loop_tentarnovamente{
         switch ($stdchoic) {
             "1" {swich_loop}
             "2" {Shutdown-System}
-            default {loop_tentarnovamente}
+            default {Run-Escolha}
             }
     }
