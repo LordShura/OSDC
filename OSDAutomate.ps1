@@ -150,7 +150,6 @@ function loop_tentarnovamente{
             switch ($stdchoic) {
             "1" {swich_loop}
             "2" {Shutdown-System}
-            if
             default {loop_tentarnovamente}
             }
 }
