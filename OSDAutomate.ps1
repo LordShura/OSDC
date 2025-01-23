@@ -146,6 +146,7 @@ function loop_tentarnovamente{
             Write-Host "2. Desligar." -ForegroundColor Red
             # Obter escolha do usuário
             $stdchoic = Read-Host "Digite o numero da Opcao desejada"
+            cls
             switch ($stdchoic) {
             "1" {swich_loop}
             "2" {Shutdown-System}
