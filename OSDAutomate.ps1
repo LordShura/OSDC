@@ -167,9 +167,15 @@ function loop_tentarnovamente{
 
     # Chamar a função com a escolha do usuário
     $validChoices = @(1, 2, 3, 4, 5, 0, 9)
-    if (($validChoices -notcontains [int]$choice) -or ([string]::IsNullOrWhiteSpace($stdchoic))){
+    if (-not [int]::TryParse($choice, [ref]$null)) {
     cls
+    Write-Host "Entrada inválida. Por favor, insira um número válido." -ForegroundColor Red
+    & X:\OSDCloud\Config\OSDSend.ps1
+    } elseif ($validChoices -notcontains [int]$choice) {
+    cls
+    Write-Host "Escolha inválida. O número deve ser uma das opções válidas: 1, 2, 3, 4, 5, 0, 9." -ForegroundColor Red
     & X:\OSDCloud\Config\OSDSend.ps1
     }
+    pause
     Run-Escolha -choice $choice
    
