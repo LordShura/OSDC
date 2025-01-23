@@ -1,4 +1,3 @@
-$down = 3
 # Função para reiniciar o sistema
 function Restart-System {
     Write-Host -ForegroundColor Green "Reiniciando sistema..."
@@ -43,7 +42,38 @@ function osdcloud-off {
     wpeutil restart
 }
 
+function swich_loop{
+    Write-Host "$down" -ForegroundColor Green
+    Write-Host "Escolha uma Opcao:" -ForegroundColor Green
+    Write-Host "1. Enviar dados do Autopilot e reiniciar" -ForegroundColor Green
+    Write-Host "2. Formatar c/autopilot img-off" -ForegroundColor Green
+    Write-Host "3. Formatar c/autopilot img-on" -ForegroundColor Green
+    Write-Host "4. Formatar s/autopilot img-off" -ForegroundColor Green
+    Write-Host "5. Formatar s/autopilot img-on" -ForegroundColor Green
+    Write-Host "0. Sair" -ForegroundColor Green
+    Write-Host "9. Desligar" -ForegroundColor Green
 
+    # Obter escolha do usuário
+    $choice = Read-Host "Digite o numero da Opcao desejada"
+
+    # Chamar a função com a escolha do usuário
+    Run-Escolha -choice $choice
+    cls
+    # Verificar se a escolha foi inválida (ou se foi pressionado apenas Enter)
+    if ([string]::IsNullOrWhiteSpace($choice)) {
+        X:\OSDCloud\Config\OSDSend.ps1
+        cls
+        Write-Host "1. Tentar novamente." -ForegroundColor Green
+        Write-Host "2. Desligar." -ForegroundColor Red
+        # Obter escolha do usuário
+        $stdchoic = Read-Host "Digite o numero da Opcao desejada"
+
+        # Chamar a função com a escolha do usuário
+        Run-STDEscolha -stdchoic $stdchoic
+    }
+
+
+}
 
 # Função principal para processar a escolha
 function Run-Escolha {
@@ -122,12 +152,7 @@ function Run-STDEscolha {
         }
     }
 }
-
-# Loop para exibir o menu até que uma Opcao válida seja escolhida
-do {
     # Menu interativo
-    if($down -eq 2){Restart-System }
-    cls
     Write-Host "$down" -ForegroundColor Green
     Write-Host "Escolha uma Opcao:" -ForegroundColor Green
     Write-Host "1. Enviar dados do Autopilot e reiniciar" -ForegroundColor Green
@@ -152,8 +177,8 @@ do {
         Write-Host "2. Desligar." -ForegroundColor Red
         # Obter escolha do usuário
         $stdchoic = Read-Host "Digite o numero da Opcao desejada"
-
+        if($stdchoic -eq 1 ){swich_loop}
+        if($stdchoic -eq 2 ){Shutdown-System}
         # Chamar a função com a escolha do usuário
         Run-STDEscolha -stdchoic $stdchoic
     }
-} while ($choice -ne "0")
