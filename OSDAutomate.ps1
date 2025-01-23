@@ -138,7 +138,19 @@ function Run-Escolha {
         }
     }
 }
-
+function loop_tentarnovamente{
+            Write-Host "Opcao invalida. Tente novamente." -ForegroundColor Red
+            Start-Sleep -Seconds 1
+            cls
+            Write-Host "1. Tentar novamente." -ForegroundColor Green
+            Write-Host "2. Desligar." -ForegroundColor Red
+            # Obter escolha do usuário
+            $stdchoic = Read-Host "Digite o numero da Opcao desejada"
+            if($stdchoic -eq 1 ){swich_loop}
+            if($stdchoic -eq 2 ){Shutdown-System}
+            if([string]::IsNullOrWhiteSpace($stdchoic)){Shutdown-System}
+            loop_tentarnovamente
+}
 
     # Menu interativo
     Write-Host "Escolha uma Opcao:" -ForegroundColor Green
