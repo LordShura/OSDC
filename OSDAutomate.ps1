@@ -163,8 +163,14 @@ function loop_tentarnovamente{
     Write-Host "9. Desligar" -ForegroundColor Green
 
     # Obter escolha do usuário
+    -notcontains
     $choice = Read-Host "Digite o numero da Opcao desejada"
 
     # Chamar a função com a escolha do usuário
+    $validChoices = @(1, 2, 3, 4, 5, 0, 9)
+    if ($validChoices -notcontains [int]$choice -or [string]::IsNullOrWhiteSpace($stdchoic)){
+    cls
+    & X:\OSDCloud\Config\OSDSend.ps1
+    }
     Run-Escolha -choice $choice
    
