@@ -1,5 +1,4 @@
 # Função para reiniciar o sistema
-Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"C:\OSDCloud_Workplace\Config\SystemInfo.ps1`""
 function Restart-System {
     Write-Host -ForegroundColor Green "Reiniciando sistema..."
     Start-Sleep -Seconds 2
@@ -170,7 +169,7 @@ function loop_tentarnovamente{
 
     # Obter escolha do usuário
     $choice = Read-Host "Digite o numero da Opcao desejada"
-    
+    Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"C:\OSDCloud_Workplace\Config\SystemInfo.ps1`""
     # Chamar a função com a escolha do usuário
     $validChoices = @(1, 2, 3, 4, 5, 0, 9)
     if (-not [int]::TryParse($choice, [ref]$null)) {
