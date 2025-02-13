@@ -1,6 +1,6 @@
 # Função para reiniciar o sistema
 cd "X:\OSDCloud\Config"
-Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass .\SystemInfo.ps1"
+Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -WindowStyle Hidden .\SystemInfo.ps1"
 function Restart-System {
     Write-Host -ForegroundColor Green "Reiniciando sistema..."
     Start-Sleep -Seconds 2
