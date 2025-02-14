@@ -52,6 +52,7 @@ function swich_loop{
     Write-Host "3. Formatar c/autopilot img-on" -ForegroundColor Green
     Write-Host "4. Formatar s/autopilot img-off" -ForegroundColor Green
     Write-Host "5. Formatar s/autopilot img-on" -ForegroundColor Green
+    Write-Host "6. Iniciar OSDCloudGUI" -ForegroundColor Green
     Write-Host "0. Sair" -ForegroundColor Green
     Write-Host "9. Desligar" -ForegroundColor Green
 
@@ -115,7 +116,11 @@ function Run-Escolha {
             osdcloud-on
             Restart-System
         }
-
+        "6" {
+            Write-Host "Opcao selecionada: Iniciar OSDCloudGUI" -ForegroundColor Yellow
+            osdcloud-on
+            Restart-System
+        }
         "0" {
             Write-Host "reiniciar..." -ForegroundColor Green
             Restart-System
@@ -166,6 +171,7 @@ function loop_tentarnovamente{
     Write-Host "3. Formatar c/autopilot img-on" -ForegroundColor Green
     Write-Host "4. Formatar s/autopilot img-off" -ForegroundColor Green
     Write-Host "5. Formatar s/autopilot img-on" -ForegroundColor Green
+    Write-Host "6. Iniciar OSDCloudGUI" -ForegroundColor Green
     Write-Host "0. Sair" -ForegroundColor Green
     Write-Host "9. Desligar" -ForegroundColor Green
 
