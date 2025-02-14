@@ -40,7 +40,7 @@ function osdcloud-off {
    
     # Iniciar o Deployment Automático
     Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
-    Start-OSDCloud -FindImageFile -Firmware
+    Start-OSDCloud -FindImageFile -Firmware -ZTI
     Restart-System
 }
 
