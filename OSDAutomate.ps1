@@ -25,8 +25,7 @@ function osdcloud-on {
    
     # Iniciar o Deployment Automático
     Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
-    Start-OSDCloud -Firmware
-    Restart-System
+    Start-OSDCloud -Firmware -Restart
 }
 
 # Função para acionar o osdcloud-off
@@ -40,8 +39,7 @@ function osdcloud-off {
    
     # Iniciar o Deployment Automático
     Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
-    Start-OSDCloud -FindImageFile -Firmware -ZTI
-    Restart-System
+    Start-OSDCloud -FindImageFile -Firmware -Restart -ZTI
 }
 
 function swich_loop{
