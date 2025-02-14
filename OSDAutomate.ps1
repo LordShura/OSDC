@@ -4,14 +4,14 @@ Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -WindowStyle Hid
 function Restart-System {
     Write-Host -ForegroundColor Green "Reiniciando sistema..."
     Start-Sleep -Seconds 2
-    wpeutil reboot
+    Restart-Computer
 }
 
 # Função para desligar o sistema
 function Shutdown-System {
     Write-Host -ForegroundColor Green "Desligando sistema..."
     Start-Sleep -Seconds 2
-    wpeutil shutdown
+    Stop-Computer
 }
 
 # Função para acionar o osdcloud-on
@@ -25,8 +25,8 @@ function osdcloud-on {
    
     # Iniciar o Deployment Automático
     Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
-    Start-OSDCloud
-    wpeutil restart
+    Start-OSDCloud -Firmware
+    Restart-System
 }
 
 # Função para acionar o osdcloud-off
@@ -40,8 +40,8 @@ function osdcloud-off {
    
     # Iniciar o Deployment Automático
     Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
-    Start-OSDCloud -FindImageFile
-    wpeutil restart
+    Start-OSDCloud -FindImageFile -Firmware
+    Restart-System
 }
 
 function swich_loop{
