@@ -4,7 +4,7 @@ Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -WindowStyle Hid
 function Restart-System {
     Write-Host -ForegroundColor Green "Reiniciando sistema..."
     Start-Sleep -Seconds 2
-    Restart-Computer
+    Restart-Computer -force
 }
 
 # Função para desligar o sistema
@@ -26,6 +26,7 @@ function osdcloud-on {
     # Iniciar o Deployment Automático
     Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
     Start-OSDCloud -Firmware -Restart
+    Restart-System
 }
 
 # Função para acionar o osdcloud-off
@@ -40,6 +41,7 @@ function osdcloud-off {
     # Iniciar o Deployment Automático
     Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
     Start-OSDCloud -FindImageFile -Firmware -Restart -ZTI
+    Restart-System
 }
 
 function swich_loop{
@@ -116,7 +118,7 @@ function Run-Escolha {
         }
         "6" {
             Write-Host "Opcao selecionada: Iniciar OSDCloudGUI" -ForegroundColor Yellow
-            osdcloud-on
+            Start-OSDCloudGUI
             Restart-System
         }
         "0" {
@@ -177,7 +179,7 @@ function loop_tentarnovamente{
     $choice = Read-Host "Digite o numero da Opcao desejada"
     Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"C:\OSDCloud\Config\SystemInfo.ps1`""
     # Chamar a função com a escolha do usuário
-    $validChoices = @(1, 2, 3, 4, 5, 0, 9)
+    $validChoices = @(1, 2, 3, 4, 5, 6, 0, 9)
     if (-not [int]::TryParse($choice, [ref]$null)) {
     cls
     & X:\OSDCloud\Config\OSDSend.ps1
