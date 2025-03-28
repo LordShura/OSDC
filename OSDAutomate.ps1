@@ -1,17 +1,3 @@
-#Set OSDCloud Vars
-$Global:MyOSDCloud = [ordered]@{
-    Restart = [bool]$False
-    RecoveryPartition = [bool]$true
-    OEMActivation = [bool]$True
-    WindowsUpdate = [bool]$true
-    WindowsUpdateDrivers = [bool]$true
-    WindowsDefenderUpdate = [bool]$true
-    SetTimeZone = [bool]$true
-    ClearDiskConfirm = [bool]$true
-}
-
-
-
 # Função para reiniciar o sistema
 function Restart-System {
     Write-Host -ForegroundColor Green "Reiniciando sistema..."
