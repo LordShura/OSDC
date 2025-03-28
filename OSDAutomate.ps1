@@ -1,3 +1,17 @@
+#Set OSDCloud Vars
+$Global:MyOSDCloud = [ordered]@{
+    Restart = [bool]$False
+    RecoveryPartition = [bool]$true
+    OEMActivation = [bool]$True
+    WindowsUpdate = [bool]$true
+    WindowsUpdateDrivers = [bool]$true
+    WindowsDefenderUpdate = [bool]$true
+    SetTimeZone = [bool]$true
+    ClearDiskConfirm = [bool]$true
+}
+
+
+
 # Função para reiniciar o sistema
 function Restart-System {
     Write-Host -ForegroundColor Green "Reiniciando sistema..."
@@ -23,7 +37,6 @@ function osdcloud-on {
    
     # Iniciar o Deployment Automático
     Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
-    $OSDCloud.DriverUpdate = $true
     Start-OSDCloud -Firmware -Restart
     Restart-System
 }
@@ -43,7 +56,7 @@ function osdcloud-off {
     Start-OSDCloud -FindImageFile -Firmware -Restart -ZTI
     Restart-System
 }
-
+Start-OSDCloudGUI
 function swich_loop{
     cls
     Write-Host "Escolha uma Opcao:" -ForegroundColor Green
@@ -189,4 +202,5 @@ function loop_tentarnovamente{
     }
     cls
     Run-Escolha -choice $choice
+
    
