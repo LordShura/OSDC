@@ -23,6 +23,7 @@ function osdcloud-on {
    
     # Iniciar o Deployment Automático
     Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
+    $OSDCloud.DriverUpdate = $true
     Start-OSDCloud -Firmware -Restart
     Restart-System
 }
@@ -38,6 +39,7 @@ function osdcloud-off {
    
     # Iniciar o Deployment Automático
     Write-Host -ForegroundColor Green "Iniciando OSD Cloud"
+    $OSDCloud.DriverUpdate = $true
     Start-OSDCloud -FindImageFile -Firmware -Restart -ZTI
     Restart-System
 }
