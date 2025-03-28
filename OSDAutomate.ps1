@@ -41,7 +41,7 @@ function osdcloud-off {
     Start-OSDCloud -FindImageFile -Firmware -Restart -ZTI
     Restart-System
 }
-Start-OSDCloudGUI
+
 function swich_loop{
     cls
     Write-Host "Escolha uma Opcao:" -ForegroundColor Green
